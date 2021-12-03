@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="header">
+        <div class="caption">
+            <h4>WIKIPEDIA</h4>
+            <p>The Free Encyclopedia</p>
+        </div>
+        <img src={{logo}} alt="Wikipedia"/>
+    </div>
+    <div class="content">
+        <form [formGroup]="form">
+            <input type="text" class="search" placeholder="Search here..." formControlName="searchText" (keyup)="onKey()" />
+            <!-- <div class="col-3 input-effect">
+                <input class="effect-21" type="text" placeholder="Search here..." formControlName="searchText" (keyup)="onKey()">
+                  <label>First Name</label>
+                  <span class="focus-border">
+                    <i></i>
+                  </span>
+              </div> -->
+        </form>
+    </div>
+    <br/>
+    <div class="word" *ngIf="result">
+        <div *ngIf="loading">Loading...</div>
+        <ul *ngFor="let res of result">
+            <div *ngFor="let props of res.query.search">
+                <li class="li-child">
+                    <h4>{{props.title}}</h4>
+                    <div [innerHTML]="props.snippet"></div>
+                </li>
+            </div>
+        </ul>
+    </div>
+</div>
