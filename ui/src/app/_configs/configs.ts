@@ -3,7 +3,7 @@ import { throwError } from 'rxjs';
 
 // Config the api route to get the specific data
 export class Configs {
-    private static APIURL = 'https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=';
+    private static APIURL = 'http://127.0.0.1:8000/search?keyword=';
     public static get apiUrl() {
         return this.APIURL;
     }

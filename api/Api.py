@@ -6,6 +6,7 @@ import time
 import PikaThread
 import uvicorn
 import sys
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 thread = PikaThread.PikaThread()
@@ -13,8 +14,23 @@ thread = PikaThread.PikaThread()
 t1 = threading.Thread(target=thread.receive_command)
 t1.start()
 
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost",
+    "http://localhost:4200",
+    "http://localhost:8080",
+]
 
-@app.post("/search")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/search")
 def search(keyword: str):
     if(thread.received):
         thread.received = False
