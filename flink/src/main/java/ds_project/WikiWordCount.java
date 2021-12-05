@@ -34,22 +34,7 @@ public class WikiWordCount {
                 .setPassword("guest")
                 .setVirtualHost("/")
                 .build();
-        final RMQSinkPublishOptions options = new RMQSinkPublishOptions() {
-            @Override
-            public String computeRoutingKey(Object o) {
-                return "wikiWordCountRes";
-            }
-
-            @Override
-            public AMQP.BasicProperties computeProperties(Object o) {
-                return null;
-            }
-
-            @Override
-            public String computeExchange(Object o) {
-                return "";
-            }
-        };
+                
         final DataStream<String> stream = env
                 .addSource(new RMQSource<String>(
                         connectionConfig,
