@@ -19,7 +19,3 @@ export function handleError(error: any) {
     }
     return throwError(errorMessage);
 }
-
-function delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-}
