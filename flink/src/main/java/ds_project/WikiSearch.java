@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class WikiSearch {
     public static void main(String[] args) throws Exception {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        final HttpRequestFunction httpRequestFunction = new HttpRequestFunction();
+        final HttpRequestFunction httpRequestFunction = new HttpRequestFunction("https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=",false);
         final RQMSerializationSchema rqmSerializationSchema = new RQMSerializationSchema();
         final StringDeserializationScheme stringDeserializationScheme = new StringDeserializationScheme();
 

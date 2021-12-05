@@ -30,7 +30,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/search")
+@app.post("/search")
 def search(keyword: str):
     if(thread.received):
         thread.received = False
@@ -46,6 +46,17 @@ def search(keyword: str):
     while not rcvd:
         rcvd = thread.received
     return thread.result
+
+@app.post("/word_count")
+def word_count(keyword: str):
+    with pika.BlockingConnection() as conn:
+        channel = conn.channel()
+        channel.basic_publish(
+            exchange='',
+            routing_key="wikiWordCount",
+            body=keyword,
+            properties=pika.BasicProperties(reply_to='searchWiki'))
+    return True
 
 def custom_openapi():
     if app.openapi_schema:

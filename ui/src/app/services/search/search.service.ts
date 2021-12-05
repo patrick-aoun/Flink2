@@ -18,7 +18,7 @@ export class SearchService {
 
   // Fetching data from the api
   get(text: String): Observable<Result>{
-    return this.http.get<Result>(Configs.apiUrl + text, this.httpOptions)
+    return this.http.post<Result>(Configs.apiUrl + text, this.httpOptions)
       .pipe(
         retry(1),
         catchError(handleError)

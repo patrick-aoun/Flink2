@@ -1,7 +1,13 @@
 ds_project/WikiSearch$RQMSerializableReturnListener.class
+ds_project/WikiWordCount$2.class
+ds_project/LineSplitter.class
+ds_project/WikiWordCount$RQMSerializableReturnListener.class
+ds_project/WikiWordCount$StringDeserializationScheme.class
 ds_project/WikiSearch.class
 ds_project/HttpRequestFunction.class
 ds_project/WikiSearch$1.class
 ds_project/WikiSearch$StringDeserializationScheme.class
+ds_project/WikiWordCount$1.class
+ds_project/WikiWordCount.class
 ds_project/WikiSearch$RQMSerializationSchema.class
 ds_project/HttpRequestFunction$1.class

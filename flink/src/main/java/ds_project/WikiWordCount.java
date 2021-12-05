@@ -85,7 +85,7 @@ public class WikiWordCount {
         wordCountStream.print();
 
         stream.print();
-        env.execute("Wikipedia Search");
+        env.execute("Wikipedia Word Count");
     }
 
     private static class RQMSerializableReturnListener implements SerializableReturnListener {
